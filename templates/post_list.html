@@ -19,7 +19,8 @@
 
         <!-- Lista de artículos -->
         <div>
-            {% for articulo in articulo %}
+            {% for articulo in lista %}
+                {{ articulo.titulo }}
             <div style="border: 1px solid #ddd; margin-bottom: 20px; padding: 15px;">
                 <!-- {% if articulo.imagen %}
                 <img src="{{ articulo.imagen.url }}" alt="{{ articulo.titulo }}" width="100%">
