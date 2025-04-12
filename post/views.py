@@ -39,3 +39,9 @@ class PostDeleteView (DeleteView):
     model = Articulo
     context_object_name = 'delete'  # Nombre del contexto para el formulario
     success_url = reverse_lazy("post_list")  # URL de redirección después de crear el artículo
+
+class logoutView (DeleteView):
+    template_name = 'post_logout.html'
+    model = Articulo
+    context_object_name = 'logout'  # Nombre del contexto para el formulario
+    success_url = reverse_lazy("post_list")  # URL de redirección después de crear el artículo
