@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Articulo
 from django.views.generic import ListView
 from django.views.generic import DetailView
@@ -32,4 +32,10 @@ class PostUpdateView (UpdateView):
     model = Articulo
     fields = ['titulo', 'descripcion', 'imagen']  # Campos del formulario
     context_object_name = 'update'  # Nombre del contexto para el formulario
+    success_url = reverse_lazy("post_list")  # URL de redirección después de crear el artículo
+
+class PostDeleteView (DeleteView):
+    template_name = 'post_delete.html'
+    model = Articulo
+    context_object_name = 'delete'  # Nombre del contexto para el formulario
     success_url = reverse_lazy("post_list")  # URL de redirección después de crear el artículo
