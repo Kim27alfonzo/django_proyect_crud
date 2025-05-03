@@ -1,0 +1,101 @@
+/* Definición de las variables de color */
+:root {
+    --fucsia: #FF00FF;
+    --naranja: #FF8C00;
+    --amarillo: #FFD700;
+    --morado: #9370DB;
+    --verde: #00FF7F;
+    --oscuro: #2A003F;
+    --blanco: #FFFFFF;
+    --gris-claro: #f8f8ff;
+}
+
+body {
+    font-family: sans-serif;
+    background: linear-gradient(45deg, var(--fucsia), var(--naranja), var(--amarillo), var(--verde), var(--morado));
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+    color: var(--oscuro);
+    margin: 0;
+    padding-bottom: 30px; /* Espacio para el footer */
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+header {
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco translúcido */
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    border-radius: 0 0 15px 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    color: var(--morado);
+    margin-bottom: 5px;
+    font-size: 2.5em;
+}
+
+header p {
+    color: var(--fucsia);
+    font-style: italic;
+    font-size: 1.1em;
+}
+
+main {
+    padding: 20px;
+    background-color: rgba(248, 248, 255, 0.9); /* Fondo gris claro translúcido */
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 800px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+main img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 15px auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+main div p {
+    line-height: 1.6;
+    color: var(--oscuro);
+}
+
+footer {
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro translúcido */
+    color: var(--blanco);
+    text-align: center;
+    padding: 15px 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+footer a {
+    color: var(--amarillo);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--verde);
+}

@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Bienvenido a Mi Sitio</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>¿Qué deseas hacer?</h2>
+            
+            <!-- Opción para usuarios no logueados -->
+            <div>
+                <h3>¿Nuevo aquí?</h3>
+                <p>Regístrate para comenzar</p>
+                <a href="{% url 'signup' %}">
+                    <button>Registrarse</button>
+                </a>
+            </div>
+
+            <div>
+                <h3>¿Ya tienes una cuenta?</h3>
+                <p>Inicia sesión para continuar</p>
+                <a href= "{% url 'login' %}">
+                    <button>Iniciar Sesión</button>
+                </a>
+            </div>
+        </section>
+
+        <!-- Mensaje para usuarios logueados (opcional) -->
+        {% if user.is_authenticated %}
+        <section>
+            <h3>¡Hola {{ user.username }}!</h3>
+            <p>Ya estás logueado. <a href="#">Ir al panel</a></p>
+        </section>
+        {% endif %}
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Mi Sitio Web</p>
+    </footer>
+</body>
+</html>

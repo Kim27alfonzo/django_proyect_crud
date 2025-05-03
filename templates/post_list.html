@@ -10,42 +10,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Artículos</title>
+    <link rel="stylesheet" href="{% static 'css/post_list.css' %}">
 </head>
 <body>
-    <div>
-        <h1>Artículos</h1>
-        
-        <!-- Botón para crear nuevo artículo -->
-        <div style="text-align: right; margin-bottom: 20px;">
-            <a href="{% url 'post_create' %}" style="background-color: blue; color: white; padding: 10px 15px; text-decoration: none; border-radius: 5px;">
-                Crear Nuevo Artículo
-            </a>
+    <div class="articles-container">
+        <div class="page-header">
+            <h1 class="page-title">Artículos</h1>
+            <div class="create-button-container text-right">
+                <a href="{% url 'post_create' %}" class="create-btn">
+                    Crear Nuevo Artículo
+                </a>
+            </div>
         </div>
-
-        <!-- Lista de artículos -->
-        <div>
+        <div class="article-list">
             {% for articulo in lista %}
-            <div style="border: 1px solid #ddd; margin-bottom: 20px; padding: 15px;">
-                {% if articulo.imagen %}
-                <img src="{{ articulo.imagen.url }}" alt="{{ articulo.titulo }}" width="100%">
-                {% else %}
-                <div style="background-color: #f5f5f5; height: 150px; display: flex; align-items: center; justify-content: center;">
-                    <span>Sin imagen</span>
+            <div class="article-card">
+                <div class="article-image-container">
+                    {% if articulo.imagen %}
+                    <img src="{{ articulo.imagen.url }}" alt="{{ articulo.titulo }}" class="article-image">
+                    {% else %}
+                    <div class="no-image">
+                        <span>Sin imagen</span>
+                    </div>
+                    {% endif %}
                 </div>
-                {% endif %}
-                <div>
-                    <h2>{{ articulo.titulo }}</h2>
-                    <p>
+                <div class="article-content">
+                    <h2 class="article-title">{{ articulo.titulo }}</h2>
+                    <p class="article-meta">
                         <small>
                             Por {{ articulo.author.username }} | {{ articulo.fecha_creacion|date:"d M Y" }}
                         </small>
                     </p>
-                    <p>{{ articulo.descripcion|truncatewords:20 }}</p>
-                    <a href= "{% url 'post_read' articulo.pk %}" style="color: blue; text-decoration: none;">Ver mas detalles</a>
+                    <p class="article-description">{{ articulo.descripcion|truncatewords:20 }}</p>
+                    <a href="{% url 'post_read' articulo.pk %}" class="read-more">Ver mas detalles</a>
                 </div>
             </div>
             {% empty %}
-            <div style="text-align: center; padding: 40px 0;">
+            <div class="empty-state">
                 <h3>No hay artículos disponibles</h3>
                 <p>Crea el primer artículo haciendo clic en el botón superior</p>
             </div>

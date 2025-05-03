@@ -1,0 +1,187 @@
+/* Añade esto a tu vibrant-gradient-theme.css */
+
+/* ESTILOS ESPECÍFICOS PARA LOGIN */
+.login-container {
+    max-width: 450px;
+    margin: 50px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.login-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 8px;
+    background: linear-gradient(45deg, var(--fucsia), var(--naranja), var(--amarillo), var(--morado));
+    background-size: 300% 300%;
+    animation: gradient 8s ease infinite;
+}
+
+.login-container h2 {
+    color: var(--oscuro);
+    margin-bottom: 30px;
+    font-size: 2rem;
+    position: relative;
+    display: inline-block;
+}
+
+.login-container h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 4px;
+    background: var(--amarillo);
+    border-radius: 2px;
+}
+
+#loginForm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center; /* Centramos los elementos hijos (form-group) */
+}
+
+.form-group {
+    text-align: left;
+    width: 100%; /* Aseguramos que ocupen el ancho del formulario para centrar el contenido interno si es necesario */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--oscuro);
+    font-weight: 600;
+}
+
+.form-group input {
+    width: calc(100% - 30px); /* Ajustamos el ancho para tener espacio a los lados si es necesario */
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 25px;
+    font-size: 1rem;
+    transition: all 0.3s;
+    margin: 0 auto; /* Centramos el input horizontalmente */
+    display: block; /* Necesario para que margin auto funcione */
+}
+
+.form-group input:focus {
+    border-color: var(--morado);
+    box-shadow: 0 0 0 3px rgba(147, 112, 219, 0.2);
+    outline: none;
+}
+
+#loginForm button[type="submit"] {
+    background: linear-gradient(45deg, var(--fucsia), var(--morado));
+    color: rgb(99, 3, 91);
+    border: none;
+    padding: 14px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 10px;
+    box-shadow: 0 4px 15px rgba(255, 0, 255, 0.3);
+    width: 100%; /* Los botones también ocupan todo el ancho para estar centrados */
+}
+
+#loginForm button[type="submit"]:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255, 0, 255, 0.4);
+}
+
+.btn-success {
+    display: inline-block;
+    width: 100%; /* El botón "Volver" también ocupa todo el ancho */
+    padding: 14px;
+    background: linear-gradient(45deg, var(--verde), #00cc66);
+    color: rgb(15, 160, 41);
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 10px;
+    box-shadow: 0 4px 15px rgba(0, 255, 127, 0.3);
+}
+
+.btn-success:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 255, 127, 0.4);
+}
+
+.switch-form {
+    margin-top: 25px;
+    color: #666;
+    text-align: center; /* Centramos el texto del switch form */
+}
+
+.switch-form a {
+    color: var(--fucsia);
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.switch-form a:hover {
+    color: var(--morado);
+    text-decoration: underline;
+}
+
+.error-message {
+    color: #ff3333;
+    background-color: #ffeeee;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border-left: 4px solid #ff3333;
+    animation: shake 0.5s;
+    text-align: left; /* Alineamos el texto de error a la izquierda */
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-5px); }
+    40%, 80% { transform: translateX(5px); }
+}
+
+/* Efecto de onda al hacer hover en los inputs */
+.form-group {
+    position: relative;
+}
+
+.form-group input {
+    z-index: 1;
+}
+
+.form-group::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: var(--fucsia);
+    transition: width 0.3s;
+}
+
+.form-group:focus-within::after {
+    width: calc(100% - 30px);
+}

@@ -1,0 +1,143 @@
+/* styles.css */
+:root {
+    --fucsia: #FF00FF;
+    --naranja: #FF8C00;
+    --amarillo: #FFD700;
+    --morado: #9370DB;
+    --verde: #00FF7F;
+    --oscuro: #2A003F;
+    --blanco: #FFFFFF;
+    --gris-claro: #f8f8ff;
+}
+
+body {
+    font-family: sans-serif;
+    background: linear-gradient(45deg, var(--naranja), var(--verde), var(--fucsia), var(--amarillo));
+    background-size: 400% 400%;
+    animation: gradientAnimation 10s ease infinite;
+    color: var(--oscuro);
+    min-height: 100vh;
+    margin: 0;
+    display: flex; /* Usamos flex para centrar el formulario */
+    flex-direction: column; /* Alineamos los elementos verticalmente */
+    align-items: center; /* Centramos horizontalmente */
+    justify-content: center; /* Centramos verticalmente */
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Estilos para el contenedor del formulario */
+.form-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 600px;
+    margin-top: 20px; /* Espacio para la navbar */
+}
+
+h2 {
+    color: var(--morado);
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 2rem;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--oscuro);
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="file"],
+textarea,
+select {
+    width: calc(100% - 22px);
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+textarea {
+    min-height: 150px;
+}
+
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%239370DB" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+    background-repeat: no-repeat;
+    background-position-x: 95%;
+    background-position-y: 50%;
+    background-size: 16px;
+}
+
+input[type="submit"],
+a {
+    display: inline-block;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-size: 1rem;
+    text-align: center;
+    margin-right: 10px;
+}
+
+input[type="submit"] {
+    background: linear-gradient(45deg, var(--verde), var(--amarillo));
+    color: var(--oscuro);
+    box-shadow: 0 4px 10px rgba(0, 255, 127, 0.3);
+}
+
+input[type="submit"]:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 255, 127, 0.4);
+}
+
+a {
+    background-color: var(--gris-claro);
+    color: var(--morado);
+    box-shadow: 0 2px 5px rgba(147, 112, 219, 0.3);
+}
+
+a:hover {
+    background-color: var(--morado);
+    color: var(--blanco);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(147, 112, 219, 0.4);
+}
+
+.errorlist {
+    color: red;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding-left: 20px;
+}
+
+.errorlist li {
+    list-style-type: disc;
+}
