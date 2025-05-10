@@ -1,4 +1,10 @@
 /* degradado-vibrante.css */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+body {
+    padding-top: 100px; /* Ajusta este valor a la altura real de tu navbar */
+}
 nav {
     display: flex;
     justify-content: space-between;
